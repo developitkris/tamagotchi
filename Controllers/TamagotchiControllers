@@ -1,0 +1,45 @@
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Tamagotchi.Models;
+using System;
+
+namespace Tamagotchi.Controllers
+{
+    public class TamagotchiController : Controller
+    {
+        [HttpGet("/Tamagotchi")]
+        public ActionResult Index()
+        {
+            List<MyTamagotchi> allTamagotchi = MyTamagotchi.GetAll();
+            return View(allTamagotchi);
+        }
+
+        [HttpGet("/Tamagotchi/new")]
+        public ActionResult CreateForm()
+        {
+            return View();
+        }
+
+        [HttpPost("/Tamagotchi")]
+        public ActionResult Create()
+        {
+
+          Health _health = new Health (Request.Form["newFood"], int.Parse(Request.Form["newSleep"]), int.Parse(Request.Form["newPlay"]));
+
+          MyTamagotchi newMyTamagotchi = new MyTamagotchi(Request.Form["nickName"], int.Parse(Request.Form["age"]), int.Parse(Request.Form["weight"]), _health);
+          newMyTamagotchi.Save();
+
+          // public MyTamagotchi(string tamaName, int tamaAge, int tamaWeight, Health healthStats)
+
+          List<MyTamagotchi> allTamagotchi = MyTamagotchi.GetAll();
+          return View("Index", allTamagotchi);
+        }
+
+        [HttpPost("/Tamagotchi/delete")]
+        public ActionResult DeleteAll()
+        {
+            MyTamagotchi.ClearAll();
+            return View();
+        }
+    }
+}

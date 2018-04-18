@@ -5,24 +5,47 @@ namespace Tamagotchi.Models
 {
   public class Health
   {
-    public Eat (string foodType, int timeGiven)
+    private int _food;
+    private int _sleep;
+    private int _play;
+    public int Eat;
+    public int Sleep;
+    public int Play;
+
+    public Health (int ate, int slept, int played)
     {
-      _food = foodType;
-      _eatTime = timeGiven;
+      Eat = ate;
+      Sleep = slept;
+      Play = played;
     }
-    public Sleep (int sleepLength, int timeGiven)
+
+    public void SetEat(int newFood)
     {
-      _sleep = sleepLength;
-      _sleepTime = timeGiven;
+      _food = newFood;
     }
-    public Play (int howLong, int timeGiven)
+    public int GetEat()
     {
-      _play = howLong;
-      _playTime = timeGiven;
+      return _food;
     }
-    public string GetHealth()
+    public void SetSleep (int newSleep)
     {
-      return tamaName + "'s food level is: " Eat + "sleep level is: " + Sleep + "play level is: " + Play;
+      _sleep = newSleep;
     }
+    public int GetSleep ()
+    {
+      return _sleep;
+    }
+    public void SetPlay (int newPlay)
+    {
+      _play = newPlay;
+    }
+    public int GetPlay ()
+    {
+      return _play;
+    }
+    // public string GetHealth()
+    // {
+    //   return "'s food level is: " Eat + "sleep level is: " + Sleep + "play level is: " + Play;
+    // }
   }
 }

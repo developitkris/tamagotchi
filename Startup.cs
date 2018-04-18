@@ -36,9 +36,10 @@ namespace Tamagotchi
             {
                 await context.Response.WriteAsync("Hello World!");
             });
-            public void Configure(IApplicationBuilder app)
-            {
-              app.UseDeveloperExceptionPage();
-            }
+            // public void Configure(IApplicationBuilder app)
+            // {
+            //   app.UseDeveloperExceptionPage();
+            // }
+        }
     }
 }

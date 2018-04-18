@@ -3,31 +3,22 @@ using System.Collections.Generic;
 
 namespace Tamagotchi.Models
 {
-  public class TamagotchiPet
+  public class MyTamagotchi
   {
-    public int _timePassed;
     private string _nickName;
     private int _age;
     private int _weight;
-    public Health _health;
+    private Health _health;
+    private static List<MyTamagotchi> _pet = new List<MyTamagotchi>{};
 
-    private static List<TamagotchiPet> _pets = new List<TamagotchiPet> {};
-
-    public TamagotchiPet (string tamaName, int tamaAge, int tamaWeight, Health healthStats)
+    public MyTamagotchi(string tamaName, int tamaAge, int tamaWeight, Health healthStats)
     {
       _nickName = tamaName;
       _age = tamaAge;
       _weight = tamaWeight;
-      _health = Health healthStats;
+      _health = healthStats;
     }
-    public void SetTime(int newTime)
-    {
-      _timePassed = newTime;
-    }
-    public int GetTime()
-    {
-      return _timePassed;
-    }
+
     public void SetName(string newName)
     {
       _nickName = newName;
@@ -52,17 +43,17 @@ namespace Tamagotchi.Models
     {
       return _weight;
     }
-    public static List<TamagotchiPet> GetAll()
+    public static List<MyTamagotchi> GetAll()
     {
-        return _pets;
+        return _pet;
     }
     public void Save()
     {
-        _pets.Add(this);
+        _pet.Add(this);
     }
     public static void ClearAll()
     {
-      _pets.Clear();
+      _pet.Clear();
     }
   }
 }
