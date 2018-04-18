@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Tamagotchi</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  </head>
+  <body>
+    <h1>Tamagotchi</h1>
+<ul>
+  @{var TamagotchiPet = 0;}
+  @foreach(var TamagotchiPet in Model)
+  {
+  TamagotchiPet++;
+  <li>TamagotchiPet @TamagotchiPet<br>
+  @Tamagotchi.GetEat()<br>
+  @Tamagotchi.GetSleep()<br>
+  @Tamagotchi.GetPlay().GetContactInfo()</li>
+  <hr>
+  }
+</ul>
+<p><a href="/jobs/new">Add another Tamagotchi pet</a></p>
+
+<form action="/jobs/delete" method="post">
+  <button type="submit" name="button">Clear All jobs from the List</button>
+</form>
+  </body>
+</html>
