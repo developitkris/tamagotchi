@@ -8,15 +8,15 @@ namespace Tamagotchi.Models
     private string _nickName;
     private int _age;
     private int _weight;
-    private Health _health;
+    private Satisfaction _meter;
     private static List<MyTamagotchi> _pet = new List<MyTamagotchi>{};
 
-    public MyTamagotchi(string tamaName, int tamaAge, int tamaWeight, Health healthStats)
+    public MyTamagotchi(string tamaName, int tamaAge, int tamaWeight, Satisfaction meter)
     {
       _nickName = tamaName;
       _age = tamaAge;
       _weight = tamaWeight;
-      _health = healthStats;
+      _meter = meter;
     }
 
     public void SetName(string newName)
@@ -28,16 +28,16 @@ namespace Tamagotchi.Models
       return _nickName;
     }
     public void SetAge(int newAge)
-    {
-      _age = newAge;
+    { //every time food, point, sleep is clicked
+      _age = newAge +1;
     }
     public int GetAge()
     {
       return _age;
     }
     public void SetWeight(int newWeight)
-    {
-      _weight = newWeight;
+    { //every time food is clicked twice
+      _weight = newWeight *2;
     }
     public int GetWeight()
     {

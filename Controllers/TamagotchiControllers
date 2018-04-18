@@ -24,12 +24,12 @@ namespace Tamagotchi.Controllers
         public ActionResult Create()
         {
 
-          Health _health = new Health (Request.Form["newFood"], int.Parse(Request.Form["newSleep"]), int.Parse(Request.Form["newPlay"]));
-
-          MyTamagotchi newMyTamagotchi = new MyTamagotchi(Request.Form["nickName"], int.Parse(Request.Form["age"]), int.Parse(Request.Form["weight"]), _health);
+          Satisfaction _meter = new Satisfaction (int.Parse(Request.Form["newFood"]), int.Parse(Request.Form["newSleep"]), int.Parse(Request.Form["newPlay"]));
+          
+          MyTamagotchi newMyTamagotchi = new MyTamagotchi(Request.Form["nickName"], int.Parse(Request.Form["age"]), int.Parse(Request.Form["weight"]), _meter);
           newMyTamagotchi.Save();
 
-          // public MyTamagotchi(string tamaName, int tamaAge, int tamaWeight, Health healthStats)
+          // public MyTamagotchi(string tamaName, int tamaAge, int tamaWeight, Satisfaction meter)
 
           List<MyTamagotchi> allTamagotchi = MyTamagotchi.GetAll();
           return View("Index", allTamagotchi);

@@ -3,49 +3,49 @@ using System.Collections.Generic;
 
 namespace Tamagotchi.Models
 {
-  public class Health
+  public class Satisfaction
   {
     private int _food;
     private int _sleep;
     private int _play;
-    public int Eat;
-    public int Sleep;
-    public int Play;
+    public int Meals;
+    public int Energy;
+    public int Mood;
 
-    public Health (int ate, int slept, int played)
+    public Satisfaction (int food, int sleep, int play)
     {
-      Eat = ate;
-      Sleep = slept;
-      Play = played;
+      Meals = food;
+      Energy = sleep;
+      Mood = play;
     }
 
-    public void SetEat(int newFood)
+    public void SetMeals(int newFood)
     {
       _food = newFood;
     }
-    public int GetEat()
+    public int GetMeals()
     {
       return _food;
     }
-    public void SetSleep (int newSleep)
+    public void SetEnergy (int newSleep)
     {
       _sleep = newSleep;
     }
-    public int GetSleep ()
+    public int GetEnergy ()
     {
       return _sleep;
     }
-    public void SetPlay (int newPlay)
+    public void SetMood (int newPlay)
     {
       _play = newPlay;
     }
-    public int GetPlay ()
+    public int GetMood ()
     {
       return _play;
     }
-    // public string GetHealth()
+    // public string GetSatisfaction()
     // {
-    //   return "'s food level is: " Eat + "sleep level is: " + Sleep + "play level is: " + Play;
+    //   return "'s food level is: " Meals + "sleep level is: " + Energy + "play level is: " + Mood;
     // }
   }
 }
